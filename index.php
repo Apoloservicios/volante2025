@@ -29,14 +29,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     
-    <!-- Schema Markup -->
+    <!-- Schema Markup       "url": "https://volante.com.ar",      -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "AutoRepair",
         "name": "Volante Lubricentro",
         "description": "Lubricentro especializado en aceites, filtros y lubricantes automotrices",
-        "url": "https://volante.com.ar",
+        "url": " http://localhost/volante2025/",
+       
         "telephone": "(260) 434-9002",
         "email": "ventas@volante.com.ar",
         "address": {
@@ -73,7 +74,8 @@
             <div class="carousel-inner h-100">
                 <!-- Slide 1 -->
                 <div class="carousel-item active h-100">
-                    <div class="hero-bg" style="background-image: url('img/slider/hero-1.jpg');"></div>
+                    <div class="hero-bg" style="background-image: url('img/slider/slide1.jpg ');"></div>
+                     <img src="img/slider/slider3.webp" class="d-block w-100" alt="...">
                     <div class="hero-overlay"></div>
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
@@ -101,7 +103,7 @@
                 
                 <!-- Slide 2 -->
                 <div class="carousel-item h-100">
-                    <div class="hero-bg" style="background-image: url('img/slider/hero-2.jpg');"></div>
+                    <div class="hero-bg" style="background-image: url('/img/slider/slide2.jpg');"></div>
                     <div class="hero-overlay"></div>
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
@@ -122,7 +124,7 @@
                 
                 <!-- Slide 3 -->
                 <div class="carousel-item h-100">
-                    <div class="hero-bg" style="background-image: url('img/slider/hero-3.jpg');"></div>
+                    <div class="hero-bg" style="background-image: url('img/slider/slide3.jpg');"></div>
                     <div class="hero-overlay"></div>
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
@@ -148,7 +150,7 @@
     <?php include 'includes/info-services.php'; ?>
     
     <!-- USAR TU SECCIÓN DE PRODUCTOS MEJORADA -->
-    <?php include 'includes/products-section.php'; ?>
+    <?php include 'includes/productos.php'; ?>
     
     <!-- Nueva sección de blog -->
     <section class="blog-preview section-padding bg-light">
