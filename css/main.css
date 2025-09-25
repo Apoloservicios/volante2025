@@ -567,3 +567,127 @@ footer .nav-link:hover {
 html {
     scroll-behavior: smooth;
 }
+
+
+/* AGREGAR ESTAS CORRECCIONES A tu css/main.css */
+
+/* ============================= */
+/* CORRECCIÓN DE IMÁGENES DE FONDO */
+/* ============================= */
+
+/* Para el slider/carousel - si usas imágenes de fondo */
+.carousel-item {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Si quieres usar imágenes de fondo específicas */
+.carousel-item:nth-child(1) {
+    background-image: url('../img/slider/slide1.jpg');
+}
+
+.carousel-item:nth-child(2) {
+    background-image: url('../img/slider/slide2.jpg');
+}
+
+.carousel-item:nth-child(3) {
+    background-image: url('../img/slider/slide3.jpg');
+}
+
+/* Overlay oscuro para mejorar legibilidad del texto */
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Asegurar que el texto esté sobre el overlay */
+.carousel-caption {
+    z-index: 2;
+}
+
+/* Para productos sin imagen */
+.product-card .product-image {
+    background-image: url('../img/producto/producto_no_disponible.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f8f9fa;
+    min-height: 200px;
+}
+
+/* Corrección para el botón de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+    color: white;
+    text-decoration: none;
+}
+
+/* Animación de pulso para WhatsApp */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.whatsapp-float {
+    animation: pulse 2s infinite;
+}
+
+/* Corrección para sección de información con imágenes de fondo */
+.section-info {
+    background-image: url('../img/backgrounds/pattern.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.section-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(235, 235, 235, 0.95);
+}
+
+.section-info .info {
+    position: relative;
+    z-index: 1;
+}
