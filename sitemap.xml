@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <!-- Página principal -->
+    <url>
+        <loc>https://volante.com.ar/</loc>
+        <lastmod><?php echo date('Y-m-d'); ?></lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Páginas estáticas -->
+    <url>
+        <loc>https://volante.com.ar/blog.php</loc>
+        <lastmod><?php echo date('Y-m-d'); ?></lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://volante.com.ar/contacto.php</loc>
+        <lastmod><?php echo date('Y-m-d'); ?></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Posts del blog (generar dinámicamente) -->
+    <?php
+    // Aquí conectarías a la DB para obtener posts
+    /*
+    $stmt = $pdo->query("SELECT slug, updated_at FROM blog_posts WHERE status = 'published'");
+    while ($post = $stmt->fetch()) {
+        echo "<url>";
+        echo "<loc>https://volante.com.ar/blog/{$post['slug']}</loc>";
+        echo "<lastmod>" . date('Y-m-d', strtotime($post['updated_at'])) . "</lastmod>";
+        echo "<changefreq>monthly</changefreq>";
+        echo "<priority>0.7</priority>";
+        echo "</url>";
+    }
+    */
+    ?>
+    
+</urlset>

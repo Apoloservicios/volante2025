@@ -1,0 +1,7 @@
+[30-Aug-2021 12:01:42 UTC] PHP Parse error:  syntax error, unexpected 'Location' (T_STRING), expecting ',' or ';' in /home10/javier/public_html/contact/contact.php on line 36
+[30-Aug-2021 12:02:05 UTC] PHP Parse error:  syntax error, unexpected 'Location' (T_STRING), expecting ',' or ';' in /home10/javier/public_html/contact/contact.php on line 36
+[30-Aug-2021 12:02:21 UTC] PHP Parse error:  syntax error, unexpected 'Location' (T_STRING), expecting ',' or ';' in /home10/javier/public_html/contact/contact.php on line 36
+[30-Aug-2021 12:03:16 UTC] PHP Parse error:  syntax error, unexpected 'Location' (T_STRING), expecting ',' or ';' in /home10/javier/public_html/contact/contact.php on line 36
+[30-Aug-2021 12:04:14 UTC] PHP Parse error:  syntax error, unexpected 'window' (T_STRING), expecting ',' or ';' in /home10/javier/public_html/contact/contact.php on line 36
+[30-Aug-2021 12:04:20 UTC] PHP Parse error:  syntax error, unexpected 'window' (T_STRING), expecting ',' or ';' in /home10/javier/public_html/contact/contact.php on line 36
+[30-Aug-2021 12:04:28 UTC] PHP Parse error:  syntax error, unexpected 'window' (T_STRING), expecting ',' or ';' in /home10/javier/public_html/contact/contact.php on line 36

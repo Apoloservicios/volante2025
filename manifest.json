@@ -1,0 +1,26 @@
+{
+    "name": "Volante Lubricentro",
+    "short_name": "Volante",
+    "description": "Lubricentro en San Rafael, Mendoza. Más de 20 años de experiencia.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ED3237",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "img/favicon/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "img/favicon/apple-touch-icon.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["automotive", "business"],
+    "lang": "es-AR",
+    "dir": "ltr"
+}

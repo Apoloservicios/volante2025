@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://volante.com.ar/sitemap.xml
+
+# Block admin area from search engines
+Disallow: /admin/
+Disallow: /config/
+Disallow: /backups/
+Disallow: /uploads/temp/
+
+# Block sensitive files
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.bak$
+
+# Allow important directories
+Allow: /img/
+Allow: /css/
+Allow: /js/
+Allow: /blog/
