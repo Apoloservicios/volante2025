@@ -327,6 +327,7 @@
                     <div class="brand-item"><img src="img/marcas/motul.png" alt="Motul" class="img-fluid"></div>
                     <div class="brand-item"><img src="img/marcas/total.png" alt="Total" class="img-fluid"></div>
                     <div class="brand-item"><img src="img/marcas/valvoline.png" alt="Valvoline" class="img-fluid"></div>
+                    <div class="brand-item"><img src="img/marcas/gulf.png" alt="Gulf" class="img-fluid"></div>
                 </div>
             </div>
         </div>
