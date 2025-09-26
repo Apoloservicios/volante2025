@@ -1,3 +1,12 @@
+<?php
+// Iniciar sesión para manejo de mensajes
+session_start();
+
+// Incluir configuración si existe
+if (file_exists('config/database.php')) {
+    require_once 'config/database.php';
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +26,7 @@
     <meta property="og:url" content="https://volante.com.ar">
     <meta property="og:type" content="business.business">
     
-    <!-- Favicon - MANTENER TUS ACTUALES -->
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
@@ -29,15 +38,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     
-    <!-- Schema Markup       "url": "https://volante.com.ar",      -->
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "AutoRepair",
         "name": "Volante Lubricentro",
         "description": "Lubricentro especializado en aceites, filtros y lubricantes automotrices",
-        "url": " http://localhost/volante2025/",
-       
+        "url": "https://volante.com.ar",
         "telephone": "(260) 434-9002",
         "email": "ventas@volante.com.ar",
         "address": {
@@ -56,63 +64,72 @@
 </head>
 
 <body>
-    <!-- USAR TU HEADER ACTUAL MEJORADO -->
+    <!-- Loading Screen -->
+    <div class="loader" id="loader" style="display: none;">
+        <div class="d-flex justify-content-center align-items-center vh-100">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <?php include 'includes/header.php'; ?>
     
-    <!-- USAR TU MENÚ ACTUAL MEJORADO -->
+    <!-- Navbar -->
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- Hero Section con slider mejorado -->
+    <!-- Hero Section con Carousel Funcional -->
     <section id="inicio" class="hero-section">
         <div id="heroCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="6000">
+            
+            <!-- Indicadores -->
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             
             <div class="carousel-inner h-100">
-                <!-- Slide 1 -->
+                <!-- Slide 1: Lubricentro de Confianza -->
                 <div class="carousel-item active h-100">
-                    <div class="hero-bg" style="background-image: url('img/slider/slide1.jpg ');"></div>
-                     <img src="img/slider/slider3.webp" class="d-block w-100" alt="...">
+                    <div class="hero-bg" style="background-image: linear-gradient(135deg, #ED3237 0%, #c02328 100%);"></div>
                     <div class="hero-overlay"></div>
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
                             <div class="col-lg-7">
                                 <div class="hero-content" data-aos="fade-up">
-                                    <h1 class="hero-title">Tu Lubricentro de <span class="text-primary">Confianza</span></h1>
+                                    <h1 class="hero-title">Tu Lubricentro de <span class="text-warning">Confianza</span></h1>
                                     <p class="hero-subtitle">Más de 20 años cuidando tu vehículo con productos de primera calidad y atención personalizada en San Rafael, Mendoza.</p>
                                     <div class="hero-buttons">
-                                        <a href="#contacto" class="btn btn-primary btn-lg me-3">
-                                            <i class="bi bi-telephone me-2"></i>Contactar Ahora
+                                        <a href="#contacto" class="btn btn-warning btn-lg me-3">
+                                            <i class="bi bi-telephone-fill me-2"></i>Contactar Ahora
                                         </a>
                                         <a href="#servicios" class="btn btn-outline-light btn-lg">
-                                            Ver Servicios
+                                            <i class="bi bi-arrow-down me-2"></i>Ver Servicios
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-5 text-center d-none d-lg-block">
-                                <!-- USAR TU LOGO ACTUAL -->
-                                <img src="img/logo/gota_volante.svg" alt="Volante" class="hero-logo" data-aos="zoom-in" data-aos-delay="300">
+                                <img src="img/logo/gota_volante.svg" alt="Volante Logo" class="hero-logo" data-aos="zoom-in" data-aos-delay="300">
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Slide 2 -->
+                <!-- Slide 2: Precios Mayoristas -->
                 <div class="carousel-item h-100">
-                    <div class="hero-bg" style="background-image: url('/img/slider/slide2.jpg');"></div>
+                    <div class="hero-bg" style="background-image: linear-gradient(135deg, #2A7BBE 0%, #1e5a8a 100%);"></div>
                     <div class="hero-overlay"></div>
                     <div class="container h-100">
-                        <div class="row align-items-center h-100">
-                            <div class="col-lg-8 mx-auto text-center">
+                        <div class="row align-items-center h-100 text-center">
+                            <div class="col-12">
                                 <div class="hero-content" data-aos="fade-up">
-                                    <h1 class="hero-title">Precios <span class="text-primary">Mayoristas</span></h1>
-                                    <p class="hero-subtitle">¿Tienes un lubricentro? Accede a nuestros precios especiales para mayoristas. La mejor calidad al mejor precio.</p>
+                                    <h1 class="hero-title">Precios <span class="text-warning">Mayoristas</span></h1>
+                                    <p class="hero-subtitle">¿Tienes un lubricentro? Accede a nuestros precios especiales para mayoristas. La mejor calidad al mejor precio del mercado.</p>
                                     <div class="hero-buttons">
-                                        <a href="#contacto" class="btn btn-primary btn-lg">
+                                        <a href="https://api.whatsapp.com/send?phone=5492604349002&text=Hola%21%20Quiero%20informaci%C3%B3n%20sobre%20precios%20mayoristas" target="_blank" class="btn btn-success btn-lg">
                                             <i class="bi bi-whatsapp me-2"></i>Solicitar Precios
                                         </a>
                                     </div>
@@ -122,18 +139,18 @@
                     </div>
                 </div>
                 
-                <!-- Slide 3 -->
+                <!-- Slide 3: Envíos Nacionales -->
                 <div class="carousel-item h-100">
-                    <div class="hero-bg" style="background-image: url('img/slider/slide3.jpg');"></div>
+                    <div class="hero-bg" style="background-image: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);"></div>
                     <div class="hero-overlay"></div>
                     <div class="container h-100">
-                        <div class="row align-items-center h-100">
-                            <div class="col-lg-8 mx-auto text-center">
+                        <div class="row align-items-center h-100 text-center">
+                            <div class="col-12">
                                 <div class="hero-content" data-aos="fade-up">
-                                    <h1 class="hero-title">Envíos a <span class="text-primary">Todo el País</span></h1>
-                                    <p class="hero-subtitle">Llegamos donde estés con nuestro sistema de envíos rápido y seguro. Tu vehículo merece lo mejor.</p>
+                                    <h1 class="hero-title">Envíos a <span class="text-warning">Todo el País</span></h1>
+                                    <p class="hero-subtitle">Llegamos donde estés con nuestro sistema de envíos rápido y seguro. Tu vehículo merece lo mejor sin importar tu ubicación.</p>
                                     <div class="hero-buttons">
-                                        <a href="#servicios" class="btn btn-primary btn-lg">
+                                        <a href="#servicios" class="btn btn-light btn-lg">
                                             <i class="bi bi-truck me-2"></i>Ver Cobertura
                                         </a>
                                     </div>
@@ -143,16 +160,61 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Controles del carousel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
         </div>
     </section>
 
-    <!-- USAR TU SECCIÓN DE SERVICIOS MEJORADA -->
+    <!-- Sección de Información Rápida -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-3">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="img/iconos/envios_m0_r.svg" alt="Envíos" width="40" class="me-3">
+                        <div class="text-start">
+                            <h6 class="mb-0 fw-bold">Envíos Nacionales</h6>
+                            <small class="text-muted">Rápidos y seguros</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="img/iconos/confianza_m0_r.svg" alt="Experiencia" width="40" class="me-3">
+                        <div class="text-start">
+                            <h6 class="mb-0 fw-bold">+20 Años Experiencia</h6>
+                            <small class="text-muted">Calidad garantizada</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="img/iconos/atencion_m0_r.svg" alt="Atención" width="40" class="me-3">
+                        <div class="text-start">
+                            <h6 class="mb-0 fw-bold">Atención Personalizada</h6>
+                            <small class="text-muted">Asesoramiento experto</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
     <?php include 'includes/info-services.php'; ?>
     
-    <!-- USAR TU SECCIÓN DE PRODUCTOS MEJORADA -->
+    <!-- Productos -->
     <?php include 'includes/productos.php'; ?>
     
-    <!-- Nueva sección de blog -->
+    <!-- Blog Preview -->
     <section class="blog-preview section-padding bg-light">
         <div class="container">
             <div class="row">
@@ -165,22 +227,47 @@
             </div>
             
             <div class="row g-4">
-                <!-- Aquí se cargarían los últimos 3 posts del blog dinámicamente -->
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="img/blog/cambio-aceite.jpg" alt="Cuándo cambiar el aceite" class="img-fluid">
+                            <img src="img/producto/producto_no_disponible.svg" alt="Cuándo cambiar el aceite" class="img-fluid">
                             <div class="blog-category">Mantenimiento</div>
                         </div>
                         <div class="blog-content">
                             <h3>¿Cuándo cambiar el aceite de tu auto?</h3>
-                            <p>Aprende a identificar las señales que te indican cuándo es momento de cambiar el aceite...</p>
-                            <a href="blog-post.php?slug=cuando-cambiar-aceite" class="btn btn-outline-primary btn-sm">Leer más</a>
+                            <p>Aprende a identificar las señales que te indican cuándo es momento de cambiar el aceite de tu vehículo...</p>
+                            <a href="blog.php" class="btn btn-outline-primary btn-sm">Leer más</a>
                         </div>
                     </article>
                 </div>
                 
-                <!-- Repetir para 2 posts más -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="img/producto/producto_no_disponible.svg" alt="Filtros de auto" class="img-fluid">
+                            <div class="blog-category">Filtros</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Importancia de los filtros en tu vehículo</h3>
+                            <p>Descubre por qué los filtros son fundamentales para el buen funcionamiento de tu auto...</p>
+                            <a href="blog.php" class="btn btn-outline-primary btn-sm">Leer más</a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="img/producto/producto_no_disponible.svg" alt="Refrigerante auto" class="img-fluid">
+                            <div class="blog-category">Refrigeración</div>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Sistema de refrigeración: clave en verano</h3>
+                            <p>Todo lo que necesitas saber sobre el mantenimiento del sistema de refrigeración...</p>
+                            <a href="blog.php" class="btn btn-outline-primary btn-sm">Leer más</a>
+                        </div>
+                    </article>
+                </div>
             </div>
             
             <div class="text-center mt-5" data-aos="fade-up">
@@ -189,16 +276,16 @@
         </div>
     </section>
 
-    <!-- USAR TU SECCIÓN DE CONTACTO MEJORADA -->
+    <!-- Contacto -->
     <?php include 'includes/contact-section.php'; ?>
 
-    <!-- USAR TU FOOTER ACTUAL MEJORADO -->
+    <!-- Footer -->
     <?php include 'includes/footer.php'; ?>
 
-    <!-- WhatsApp Widget Multi-contacto -->
+    <!-- WhatsApp Button -->
     <?php include 'includes/whatsapp-widget.php'; ?>
 
-    <!-- Back to Top -->
+    <!-- Back to Top Button -->
     <a href="#inicio" class="back-to-top" id="backToTop">
         <i class="bi bi-arrow-up"></i>
     </a>
@@ -208,7 +295,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="js/main.js"></script>
     
-    <!-- Google Analytics - REEMPLAZAR CON TU ID -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -216,52 +303,5 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
-
-    <!-- Scripts adicionales -->
-<script>
-// Validación del formulario
-(function() {
-    'use strict';
-    var forms = document.querySelectorAll('.needs-validation');
-    
-    Array.prototype.slice.call(forms).forEach(function(form) {
-        form.addEventListener('submit', function(event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-        }, false);
-    });
-})();
-
-// Auto-hide alerts después de 5 segundos
-document.addEventListener('DOMContentLoaded', function() {
-    const alerts = document.querySelectorAll('.alert');
-    alerts.forEach(alert => {
-        setTimeout(() => {
-            const bsAlert = new bootstrap.Alert(alert);
-            bsAlert.close();
-        }, 5000);
-    });
-});
-
-// Smooth scroll para anchors
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if(href !== '#' && href !== '#0') {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if(target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-    });
-});
-</script>
 </body>
 </html>
