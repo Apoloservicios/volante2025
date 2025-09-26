@@ -2,14 +2,14 @@
 // config/database.php
 
 // Configuración de la base de datos
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'volante_db');
-define('DB_USER', 'root'); // Cambiar por tu usuario
-define('DB_PASS', ''); // Cambiar por tu contraseña
+define('DB_HOST', 'http://volante.com.ar/new');
+define('DB_NAME', 'u822816010_volante_db');
+define('DB_USER', 'u822816010_superapolo'); // Cambiar por tu usuario
+define('DB_PASS', 'b0C12KgN^'); // Cambiar por tu contraseña
 define('DB_CHARSET', 'utf8mb4');
 
 // Configuración del sitio
-define('SITE_URL', 'http://localhost/volante2025'); // Cambiar por tu URL
+define('SITE_URL', 'http://volante.com.ar/new'); // Cambiar por tu URL
 define('SITE_NAME', 'Volante Lubricentro');
 define('SITE_EMAIL', 'ventas@volante.com.ar');
 define('SITE_PHONE', '(260) 434-9002');
